@@ -25,7 +25,6 @@ const game = {
         this.addBlock();
     },
     setColor(x, y, what, id, color, alone){
-        if(color == "none") console.log(x, y, what, id, color, alone)
         playboard.array[x][y][0] = what;
         playboard.array[x][y][1] = id;
         playboard.array[x][y][2] = color;

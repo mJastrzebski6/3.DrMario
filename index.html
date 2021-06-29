@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dr. Mario</title>
+</head>
+<body onload="game.prepare()">
+    <img src="images/add/info-table.png" id="info-table">
+    <img src="images/add/magnifier.png" id="magnifier">
+    <img src="images/add/mario.png" id="mario">
+    <img src="images/add/score-table.png" id="score-table">
+
+    <img src="images/background.png" id="background">
+    <div id="top-score"></div>
+    <div id="current-score"></div>
+    <div id="active-viruses"></div>
+    <div id="level"></div>
+    <div id="throw"></div>
+    <div id="end-mario"></div>
+    
+    <div id="board"></div>
+
+    <div id="bigviruses">
+        <div id="big-red-virus-div"></div>
+        <div id="big-yellow-virus-div"></div>
+        <div id="big-blue-virus-div"></div>
+    </div>
+    <img src="images/texts/stage-complete.png" id="stage-complete">
+    <img src="images/texts/game-over.png" id="game-over">
+
+    <script src="scripts/bigviruses.js"></script>
+    <script src="scripts/playboard.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/throwing.js"></script>
+    <script src="scripts/score.js"></script>
+</body>
+</html>

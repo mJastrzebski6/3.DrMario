@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#background{
+    width: 2000px;
+    height: 1200px;
+    position: absolute;
+    z-index: -1;
+}
+body{
+    background-color: #1e1e1e;
+}
+/*--------------------PLANSZA-----------------*/
+#board{
+    width: 400px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    left: 850px;
+    top: 300px;
+    position: absolute;
+}
+.box{
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*-----------------DUZE WIRUSY------------------*/
+#bigviruses{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: 650px;
+    left: 100px;
+    z-index: 1;
+}
+#big-blue-virus-div, #big-yellow-virus-div, #big-red-virus-div{
+    width: 200px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: 200px 150px;
+    position: absolute;
+}
+#big-blue-virus-div{
+    left: 34px;
+    top: 216px;
+}
+#big-yellow-virus-div{
+    left: 255px;
+    top: 280px;
+}
+#big-red-virus-div{
+    left: 170px;
+    top: 20px;
+}
+/*------------------WYNIKI---------------*/
+#current-score,#top-score{
+    height: 50px;
+    width: 350px;
+    position: absolute;
+    left: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+img{
+    height: 50px;
+}
+#current-score{
+    top: 395px;
+}
+#top-score{
+    top: 250px;
+}
+#active-viruses, #level{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    left: 1752px;
+}
+#active-viruses{
+    top: 1048px;
+}
+#level{
+    top: 748px;
+}
+
+/*-------------overlays---------*/
+
+#stage-complete, #game-over{
+    position: absolute;
+    height: 200px;
+    top: 400px;
+}
+#stage-complete{
+    left: 700px;
+    visibility: hidden;
+}
+#game-over{
+    left: 775px;
+    visibility: hidden;
+}
+
+#throw{
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    left: 1001px;
+    position: absolute;
+    z-index: 1;
+}
+/*----------DUZY MARIO-----------*/
+#end-mario{
+    height: 350px;
+    width: 350px;
+    position: absolute; 
+    left: 1500px;
+    top: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+}
+/*--------------ADD--------------*/
+#magnifier, #mario, #score-table, #info-table{
+    position: absolute;
+    z-index: 0;
+}
+#info-table{
+    height: 630px;
+    top: 556px;
+    left: 1404px;
+}
+#magnifier{
+    height: 600px;
+    top: 600px;
+    left: 50px;
+}
+#mario{
+    height: 450px;
+    left: 1450px;
+    top: 100px;
+}
+#score-table{
+    height: 483px;
+    top: 50px;
+    left: 50px;
+}

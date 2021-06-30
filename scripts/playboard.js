@@ -54,6 +54,7 @@ const playboard = {
         });      
     },
     win(){
+        document.getElementById("stage-complete").style.visibility = "visible";
         setTimeout(() => {
             playboard.listener = 2;
         }, 4000); 
@@ -73,11 +74,13 @@ const playboard = {
         else playboard.start();
     },
     lose(){
+        document.getElementById("game-over").style.visibility = "visible";
+        bigViruses.endAnimation();
+        score.saveTopScore();
         playboard.listener = 1;
     },
     restart(){
         playboard.resetVariables();
-        clearInterval(bigViruses.smilingInterval);
         
         document.getElementById("end-mario").style.backgroundImage = "";
         document.getElementById("game-over").style.visibility = "hidden";
@@ -110,11 +113,11 @@ const playboard = {
         game.stageCompleted = false;
         game.first = null;
         game.second = null;
-        bigViruses.redWait = false;
-        bigViruses.yellowWait = false;
-        bigViruses.blueWait = false;
-        bigViruses.mIndex = 0;
+        bigViruses.redDyingInterval = null;
+        bigViruses.yellowDyingInterval = null;
+        bigViruses.blueDyingInterval = null;
         bigViruses.stop = false;
+        clearInterval(bigViruses.smilingInterval);
         clearTimeout(bigViruses.waitingTimeout);
         clearInterval(bigViruses.movingInterval);
         clearInterval(bigViruses.danceInterval);
@@ -124,7 +127,7 @@ const playboard = {
         bigViruses.smilingInterval = null;
     },
     start(){
-        bigViruses.creatingBigViruses();
+        bigViruses.createBigViruses();
         score.getScores();
         game.generateViruses(score.allViruses);
         game.addBlock();

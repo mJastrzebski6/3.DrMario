@@ -15,7 +15,7 @@ const game = {
     second: null,
 
     prepare(){
-        bigViruses.creatingBigViruses();
+        bigViruses.createBigViruses();
         score.getScores();
         throwing.create();
         playboard.createArray();
@@ -25,7 +25,6 @@ const game = {
         this.addBlock();
     },
     setColor(x, y, what, id, color, alone){
-        if(color == "none") console.log(x, y, what, id, color, alone)
         playboard.array[x][y][0] = what;
         playboard.array[x][y][1] = id;
         playboard.array[x][y][2] = color;
@@ -167,13 +166,9 @@ const game = {
     },
     async addBlock(){
         if(playboard.array[4][1][0] != "blank" || playboard.array[5][1][0] != "blank"){
-            document.getElementById("game-over").style.visibility = "visible";
-            bigViruses.endAnimation();
-            score.saveTopScore();
             playboard.lose();
         }
         else if(this.stageCompleted != false){
-            document.getElementById("stage-complete").style.visibility = "visible";
             playboard.win();
         }
         else{
@@ -227,7 +222,7 @@ const game = {
         let destroyableAr = [];
         do{
             this.somethingFell = false; //
-            destroyableAr = game.blockDestroying();
+            destroyableAr = game.blockDestroying(1);
             for(let i=0; i<destroyableAr.length; i++){
                 let thing = playboard.array[destroyableAr[i][0]][destroyableAr[i][1]][0];
                 let ind =   playboard.array[destroyableAr[i][0]][destroyableAr[i][1]][1];
@@ -259,7 +254,7 @@ const game = {
                 const result2 = await this.waiting();
             }
 
-            destroyableAr = game.blockDestroying();
+            destroyableAr = game.blockDestroying(0);
 
         }while(this.somethingFell == true || destroyableAr.length != 0);
         game.addBlock();
@@ -272,7 +267,7 @@ const game = {
             }, 100);   
         });
     },
-    blockDestroying(){
+    blockDestroying(check){
         let blocks = [];
         let temporaryColor;
         let temporaryLength;
@@ -328,7 +323,7 @@ const game = {
                 }
             }
         }
-        if(viruses.length != 0) bigViruses.destroyAnimation(viruses);
+        if(viruses.length != 0 && check==1) bigViruses.destroyAnimation(viruses);
         return blocks;
     },
     blockFalling(){
@@ -387,6 +382,14 @@ const game = {
                 y = Math.floor(Math.random() * 11) + 6;  
             }while(playboard.array[x][y][0] == "virus");
             this.setColor(x, y, "virus", "0", this.colors[i%3]);
+        }
+        bigViruses.remainingBlues = Math.floor(amount/3);
+        bigViruses.remainingYellows = Math.floor(amount/3);
+        bigViruses.remainingReds = Math.floor(amount/3);
+        if(amount%3==1)bigViruses.remainingBlues++;
+        if(amount%3==2){
+            bigViruses.remainingBlues++;
+            bigViruses.remainingYellows++;
         }
     },
     destroyingPillAnimation2(x){

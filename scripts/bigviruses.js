@@ -102,6 +102,7 @@ const bigViruses = {
                     this.redDyingInterval = "noMoreReds";
                 } 
             }, 4000);
+            clearInterval(this.redDyingInterval);
             this.redDyingInterval = setInterval(() => {
                 if(number == 1 ){
                     bigViruses.red.style.backgroundImage = 'url("images/magnifier/red/d1.png")';
@@ -123,6 +124,7 @@ const bigViruses = {
                   this.blueDyingInterval = "noMoreBlues";
                 } 
             }, 4000);
+            clearInterval(this.blueDyingInterval);
             this.blueDyingInterval = setInterval(() => {
                 if(number == 1 ){
                     bigViruses.blue.style.backgroundImage = 'url("images/magnifier/blue/d1.png")';
@@ -144,6 +146,7 @@ const bigViruses = {
                     this.yellowDyingInterval = "noMoreYellows";
                 } 
             }, 4000);
+            clearInterval(this.yellowDyingInterval);
             this.yellowDyingInterval = setInterval(() => {
                 if(number == 1 ){
                     bigViruses.yellow.style.backgroundImage = 'url("images/magnifier/yellow/d1.png")';
@@ -159,6 +162,5 @@ const bigViruses = {
         this.waitingTimeout = setTimeout(() => {
             this.moveViruses();
         }, 4000);
-        console.log(this.remainingBlues, this.remainingYellows, this.remainingReds)
     }
 }

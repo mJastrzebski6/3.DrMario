@@ -1,7 +1,8 @@
 # Dr.Mario
 
 Dr. Mario game made in pure javascript within a school project. 
-The code quality is not the best because the game was made at the beginning of my adventure with the javascript language.
+The code quality is not the best because the game was made at the beginning of my adventure with the javascript, but i am proud of it.
+
 Hope you enjoy!
 
 ## Controls:
